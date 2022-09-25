@@ -15,7 +15,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 const useStyles=makeStyles(()=>({
   root:{
       '& > *':{
-         
+          
           width:'25ch',
       },
   },
@@ -46,7 +46,12 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export default function ShowStudent() {
   const classes = useStyles();
   const [studentsList,setStudentList]= useState([])
-
+  const deleteStudent=(id)=>{
+    axios.delete(`http://localhost:5000/students/${id}`).then(()=>{
+      window.location.reload(false);
+    }
+    )
+  }
   useEffect(()=>{
     axios.get('http://localhost:5000/students').then((allStudents)=>{
       setStudentList(allStudents.data);
@@ -78,7 +83,7 @@ export default function ShowStudent() {
               <StyledTableCell align="right">{student.grade}</StyledTableCell>
               <StyledTableCell align="right">{student.section}</StyledTableCell>
               <StyledTableCell align="right">
-              <IconButton aria-label="delete" size="small">
+              <IconButton aria-label="delete" size="small" onClick={()=>deleteStudent(student._id)}>
                 <DeleteIcon fontSize="small" />
                 </IconButton>
               </StyledTableCell>

@@ -11,7 +11,7 @@ const app = express();
 
 app.use(bodyParser.json({limit:"20mb",extended:true}));
 app.use(bodyParser.urlencoded({limit:"20mb",extended:true}));
-
+app.use(cors());
 app.use('/students',studentRouters);
 
 const CONNECTION_URL = 'mongodb+srv://chanduk:root@cluster0.bo6nkuj.mongodb.net/?retryWrites=true&w=majority'

@@ -9,7 +9,7 @@ export const getStudents=async(req,res)=>{
     } catch (error) {
         res.status(404).json({message:error.message});
     }
-}
+};
 
 export const createStudent=async (req,res)=>{
     const student = req.body;
@@ -23,6 +23,21 @@ export const createStudent=async (req,res)=>{
        res.status(409).json({message:error.message}) ;
        
     }
-}
+};
+
+export const deleteStudent=async (req,res)=>{
+    const id=req.params.id;
+    try {
+       await Student.findByIdAndRemove(id).exec();
+       res.send("Deleted");
+    
+    } catch (error) {
+       console.log(error);
+       
+    }
+};
+
+
+
 
 
