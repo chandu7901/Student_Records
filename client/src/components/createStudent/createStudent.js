@@ -26,7 +26,7 @@ export default function CreateStudent() {
     });
 
 const createStudent=()=>{
-    axios.post('http://localhost:5000/students',student).then(()=>{
+    axios.post('https://student-records-crud.herokuapp.com/students',student).then(()=>{
       window.location.reload(false);
     })
 }

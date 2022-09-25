@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import studentRouters from './routes/student.js';
-
+import dotenv from 'dotenv';
 
 
 const app = express();
