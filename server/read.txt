@@ -1,0 +1,8 @@
+Create routes
+import route in server/index
+
+create controller for routes
+
+create model schema and use inside controller for operation data
+import model schema in route
+
